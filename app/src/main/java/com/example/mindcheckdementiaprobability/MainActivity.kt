@@ -63,9 +63,9 @@ class MainActivity : AppCompatActivity() {
 
             // Format and display the results.
             val resultText = """
-                Prevalence for dementia: ${(stats.prevalence * 100).format(0)}%
+                Prevalence for dementia: ${(stats.prevalence * 100).format(2)}%
                 Likelihood Ratio for MMSE: ${stats.likelihoodRatio}
-                Post-test Probability: ${(stats.probability * 100).format(0)}%
+                Post-test Probability: ${(stats.probability * 100).format(2)}%
             """.trimIndent()
 
             binding.tvResult.text = resultText
