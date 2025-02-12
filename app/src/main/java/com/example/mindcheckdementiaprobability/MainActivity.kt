@@ -63,9 +63,9 @@ class MainActivity : AppCompatActivity() {
 
             // Format and display the results.
             val resultText = """
-                Prevalence for dementia: ${(stats.prevalence * 100).format(2)}%
+                Prevalence for dementia: ${(stats.prevalence * 100).format(0)}%
                 Likelihood Ratio for MMSE: ${stats.likelihoodRatio}
-                Post-test Probability: ${(stats.probability * 100).format(2)}%
+                Post-test Probability: ${(stats.probability * 100).format(0)}%
             """.trimIndent()
 
             binding.tvResult.text = resultText
@@ -84,30 +84,30 @@ class MainActivity : AppCompatActivity() {
         // Baseline prevalence values by gender and age category.
         val prevalence = when (gender) {
             "Male" -> when (ageCategory) {
-                "60-64" -> 0.02
-                "65-69" -> 0.03
-                "70-74" -> 0.05
-                "75-79" -> 0.08
-                "80-84" -> 0.12
-                "85-89" -> 0.18
-                "90+"   -> 0.25
+                "60-64" -> 0.014
+                "65-69" -> 0.023
+                "70-74" -> 0.037
+                "75-79" -> 0.063
+                "80-84" -> 0.106
+                "85-89" -> 0.174
+                "90+"   -> 0.334
                 else    -> 0.0
             }
             "Female" -> when (ageCategory) {
-                "60-64" -> 0.03
-                "65-69" -> 0.04
-                "70-74" -> 0.06
-                "75-79" -> 0.10
-                "80-84" -> 0.16
-                "85-89" -> 0.22
-                "90+"   -> 0.30
+                "60-64" -> 0.019
+                "65-69" -> 0.03
+                "70-74" -> 0.05
+                "75-79" -> 0.086
+                "80-84" -> 0.148
+                "85-89" -> 0.274
+                "90+"   -> 0.480
                 else    -> 0.0
             }
             else -> 0.0
         }
 
         // Set the likelihood ratio based on MMSE result.
-        val likelihoodRatio = if (mmseRange == "MMSE 0-24") 8.0 else 1.0
+        val likelihoodRatio = if (mmseRange == "MMSE 0-24") 6.30 else 0.19
 
         // Calculate post-test probability using Bayes’ theorem:
         // preTestOdds = prevalence / (1 - prevalence)
